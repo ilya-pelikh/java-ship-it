@@ -19,7 +19,7 @@ public class ParcelBoxTest {
         parcelBox.addParcel(standardParcel);
         parcelBox.addParcel(standardParcel);
 
-        int boxSize = parcelBox.getParcelList().size();
+        int boxSize = parcelBox.getAllParcels().size();
         assertEquals(2, boxSize);
     }
     @Test
@@ -30,7 +30,7 @@ public class ParcelBoxTest {
         parcelBox.addParcel(standardParcel);
         parcelBox.addParcel(standardParcel);
 
-        int boxSize = parcelBox.getParcelList().size();
+        int boxSize = parcelBox.getAllParcels().size();
         assertEquals(2, boxSize);
     }
 

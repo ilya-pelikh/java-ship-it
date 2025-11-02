@@ -10,10 +10,6 @@ public class ParcelBox<T extends Parcel> {
         this.maxWeight = maxWeight;
     }
 
-    public ArrayList<T> getParcelList() {
-        return parcelList;
-    }
-
     public void addParcel (T newParcel) {
         int sum = 0;
 
@@ -31,10 +27,8 @@ public class ParcelBox<T extends Parcel> {
         parcelList.add(newParcel);
     }
 
-    public void getAllParcels () {
-        for(Parcel parcel : parcelList) {
-            System.out.println(parcel.getDescription());
-        }
+    public ArrayList<T> getAllParcels () {
+        return parcelList;
     }
 
 }
