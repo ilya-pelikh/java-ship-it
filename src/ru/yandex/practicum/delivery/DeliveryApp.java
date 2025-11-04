@@ -11,9 +11,9 @@ public class DeliveryApp {
 
     private static List<Trackable> allTrackingParcels = new ArrayList<>();
 
-    private static List<StandardParcel> standartParcelsPacked = new ArrayList<>();
-    private static List<FragileParcel> fragileParcelsPacked = new ArrayList<>();
-    private static List<PerishableParcel> perishableParcelsPacked = new ArrayList<>();
+    private static ParcelBox<StandardParcel> standartParcelsPacked = new ParcelBox<>(1000);
+    private static ParcelBox<FragileParcel> fragileParcelsPacked = new ParcelBox<>(1000);
+    private static ParcelBox<PerishableParcel> perishableParcelsPacked = new ParcelBox<>(1000);
 
     public static void main(String[] args) {
         boolean running = true;
@@ -68,13 +68,13 @@ public class DeliveryApp {
 
         switch (choice) {
             case 1:
-                System.out.println(standartParcelsPacked);
+                System.out.println(standartParcelsPacked.getAllParcels());
                 break;
             case 2:
-                System.out.println(fragileParcelsPacked);
+                System.out.println(fragileParcelsPacked.getAllParcels());
                 break;
             case 3:
-                System.out.println(perishableParcelsPacked);
+                System.out.println(perishableParcelsPacked.getAllParcels());
                 break;
             default:
                 System.out.println("Такого списка нет");
@@ -115,17 +115,17 @@ public class DeliveryApp {
         switch (choice) {
             case 1:
                 parcel = new StandardParcel(description, weight, deliveryAddress, sendDay);
-                standartParcelsPacked.add((StandardParcel) parcel);
+                standartParcelsPacked.addParcel((StandardParcel) parcel);
                 break;
             case 2:
                 parcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
-                fragileParcelsPacked.add((FragileParcel) parcel);
+                fragileParcelsPacked.addParcel((FragileParcel) parcel);
                 break;
             case 3:
                 System.out.println("Введите срок годности: ");
                 int timeToLive = scanner.nextInt();
                 parcel = new PerishableParcel(description, weight, deliveryAddress, sendDay, timeToLive);
-                perishableParcelsPacked.add((PerishableParcel) parcel);
+                perishableParcelsPacked.addParcel((PerishableParcel) parcel);
                 break;
             default:
                 System.out.println("Такого типа не существует");
