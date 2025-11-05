@@ -35,5 +35,8 @@ public abstract class Parcel {
         System.out.println("Посылка " + description + " упакована");
     };
 
-
+    @Override
+    public String toString() {
+        return getDescription();
+    }
 }
